@@ -1,3 +1,11 @@
+variable "RP_SKIP_PYTHON" {
+  default = ""
+}
+
+variable "RP_SKIP_JUPYTER" {
+  default = ""
+}
+
 group "cpu" {
   targets = ["cpu-ubuntu2204", "cpu-ubuntu2404"]
 }
