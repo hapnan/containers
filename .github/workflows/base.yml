@@ -24,6 +24,16 @@ jobs:
         with:
           fetch-depth: 0
       
+      - name: Free up disk space
+        run: |
+          sudo rm -rf /usr/share/dotnet
+          sudo rm -rf /usr/local/lib/android
+          sudo rm -rf /opt/ghc
+          sudo rm -rf /opt/hostedtoolcache/CodeQL
+          sudo docker system prune -af
+          sudo apt-get clean
+          df -h
+      
       - name: Setup Docker
         uses: ./.github/actions/docker-setup
         id: setup
@@ -64,6 +74,17 @@ jobs:
             pytorch:
               - 'official-templates/shared/**'
               - 'official-templates/pytorch/**'
+
+      - name: Free up disk space
+        if: github.event_name == 'workflow_dispatch' || steps.changes.outputs.pytorch_any_changed == 'true'
+        run: |
+          sudo rm -rf /usr/share/dotnet
+          sudo rm -rf /usr/local/lib/android
+          sudo rm -rf /opt/ghc
+          sudo rm -rf /opt/hostedtoolcache/CodeQL
+          sudo docker system prune -af
+          sudo apt-get clean
+          df -h
 
       - name: Setup Docker
         if: github.event_name == 'workflow_dispatch' || steps.changes.outputs.pytorch_any_changed == 'true'
