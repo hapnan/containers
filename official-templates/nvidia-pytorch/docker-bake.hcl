@@ -20,7 +20,7 @@ target "nvidia-base" {
 target "pytorch-2511" {
   inherits = ["nvidia-base"]
   tags = [
-    "runpod/nvidia-pytorch:${RELEASE_VERSION}${RELEASE_SUFFIX}-25.11",
+    "hapnan/nvidia-pytorch:${RELEASE_VERSION}${RELEASE_SUFFIX}-25.11",
   ]
   args = {
     BASE_IMAGE = "nvcr.io/nvidia/pytorch:25.11-py3"

@@ -2,6 +2,9 @@
 
 variable "TORCH_META" {
   default = {
+    "2.10.0" = {
+      torchvision = "0.25.0"
+    }
     "2.9.1" = {}
     "2.9.0" = {
       torchvision = "0.24.0"
@@ -27,18 +30,21 @@ variable "CUDA_TORCH_COMBINATIONS" {
     { cuda_version = "12.8.1", torch = "2.8.0", whl_src = "128" },
     { cuda_version = "12.8.1", torch = "2.9.0", whl_src = "128" },
     { cuda_version = "12.8.1", torch = "2.9.1", whl_src = "128" },
+    { cuda_version = "12.8.1", torch = "2.10.0", whl_src = "128" },
     
     { cuda_version = "12.9.0", torch = "2.6.0", whl_src = "126" },
     { cuda_version = "12.9.0", torch = "2.7.1", whl_src = "128" },
     { cuda_version = "12.9.0", torch = "2.8.0", whl_src = "129" },
     { cuda_version = "12.9.0", torch = "2.9.0", whl_src = "129" },
     { cuda_version = "12.9.0", torch = "2.9.1", whl_src = "129" },
+    { cuda_version = "12.9.0", torch = "2.10.0", whl_src = "129" },
 
     { cuda_version = "13.0.0", torch = "2.6.0", whl_src = "126" },
     { cuda_version = "13.0.0", torch = "2.7.1", whl_src = "128" },
     { cuda_version = "13.0.0", torch = "2.8.0", whl_src = "129" },
     { cuda_version = "13.0.0", torch = "2.9.0", whl_src = "130" },
     { cuda_version = "13.0.0", torch = "2.9.1", whl_src = "130" },
+    { cuda_version = "13.0.0", torch = "2.10.0", whl_src = "130" },
   ]
 }
 
@@ -94,6 +100,6 @@ target "pytorch-matrix" {
   }
   
   tags = [
-    "runpod/pytorch:${RELEASE_VERSION}${RELEASE_SUFFIX}-cu${build.cuda_code}-torch${build.torch_code}-${build.ubuntu_name}",
+    "hapnan/pytorch:${RELEASE_VERSION}${RELEASE_SUFFIX}-cu${build.cuda_code}-torch${build.torch_code}-${build.ubuntu_name}",
   ]
 }
