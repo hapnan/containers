@@ -94,7 +94,7 @@ target "pytorch-matrix" {
   inherits = ["pytorch-base"]
   
   args = {
-    BASE_IMAGE = "runpod/base:${RELEASE_VERSION}${RELEASE_SUFFIX}-cuda${build.cuda_code}-${build.ubuntu_name}"
+    BASE_IMAGE = "hapnan/base:${RELEASE_VERSION}${RELEASE_SUFFIX}-cuda${build.cuda_code}-${build.ubuntu_name}"
     WHEEL_SRC = build.wheel_src
     TORCH = "torch==${build.torch}${build.torch_vision != "" ? " torchvision==${build.torch_vision}" : ""} torchaudio==${build.torch}"
   }
