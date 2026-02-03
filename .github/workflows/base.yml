@@ -36,6 +36,8 @@ jobs:
         env:
           BUILDX_BAKE_ENTITLEMENTS_FS: 0
           RELEASE_SUFFIX: ${{ steps.setup.outputs.release-suffix }}
+          RP_SKIP_PYTHON: ""           # Leave empty to install Python
+          RP_SKIP_JUPYTER: "" 
         with:
           source: .
           files: |

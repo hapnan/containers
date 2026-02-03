@@ -15,6 +15,10 @@ target "common-base" {
     proxy   = "container-template/proxy"
     logo    = "container-template"
   }
+  args = {
+    RP_SKIP_PYTHON = "${RP_SKIP_PYTHON}"
+    RP_SKIP_JUPYTER = "${RP_SKIP_JUPYTER}"
+  }
 }
 
 target "cpu-ubuntu2204" {
